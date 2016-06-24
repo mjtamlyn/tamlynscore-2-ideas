@@ -8,7 +8,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SECRET_KEY = os.environ.get('SECRET_KEY', 'r50(zwnsd8lhi#t(wfetq@n@1(#o2yp=&b)z=c@e)e!00zvhmc')
 
 DEBUG = not os.environ.get('PRODUCTION')
-TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
     'tamlynscore.herokuapp.com',
@@ -18,6 +17,9 @@ ALLOWED_HOSTS = [
 ]
 
 INSTALLED_APPS = (
+    'django_graphiql',
+    'graphene.contrib.django',
+
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
@@ -42,5 +44,23 @@ TIME_ZONE = 'Europe/London'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                # 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.debug',
+                'django.template.context_processors.i18n',
+                'django.template.context_processors.media',
+                'django.template.context_processors.static',
+                'django.template.context_processors.tz',
+                'django.contrib.messages.context_processors.messages',
+            ]
+        }
+    },
+]
 
 STATIC_URL = '/static/'

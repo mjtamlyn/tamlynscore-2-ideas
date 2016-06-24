@@ -1,3 +1,7 @@
 Django>=1.9
 dj_database_url
 psycopg2
+graphene
+graphene[django]
+django-graphiql
+graphql-django-view
