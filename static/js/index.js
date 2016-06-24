@@ -2,6 +2,8 @@ import React from 'react';
 import Relay from 'react-relay';
 import ReactDOM from 'react-dom';
 
+import App from './components/app';
+
 
 let Root = {
     queries: {
@@ -12,20 +14,6 @@ let Root = {
     params: {},
     name: 'Root',
 };
-
-let App = function(props) {
-    return <div>{ props.root.hello }</div>;
-};
-
-App = Relay.createContainer(App, {
-    fragments: {
-        root: () => Relay.QL`
-            fragment on Root {
-                hello
-            }
-        `,
-    },
-});
 
 ReactDOM.render(
     <Relay.RootContainer
