@@ -18,12 +18,18 @@ module.exports = {
         new BundleTracker({filename: './build/webpack-stats.json'}),
     ],
 
+    devtool: "source-map",
+
     module: {
         loaders: [
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
+            },
+            {
+                test: /\.sass$/,
+                loaders: ["style", "css?sourceMap", "sass?sourceMap"],
             },
         ],
     },
