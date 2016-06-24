@@ -4,7 +4,7 @@ from ..schema import schema
 def test_root():
     result = schema.execute('''{
         root {
-            ok
+            hello
         }
     }''')
-    assert result.data == {'root': {'ok': True}}
+    assert result.data == {'root': {'hello': 'world'}}

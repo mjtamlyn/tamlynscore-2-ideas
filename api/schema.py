@@ -2,7 +2,7 @@ import graphene
 
 
 class Root(graphene.ObjectType):
-    ok = graphene.Boolean(default=True)
+    hello = graphene.String(default='world')
 
 
 class Query(graphene.ObjectType):

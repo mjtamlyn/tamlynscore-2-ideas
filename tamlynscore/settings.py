@@ -17,8 +17,11 @@ ALLOWED_HOSTS = [
 ]
 
 INSTALLED_APPS = (
+    'tamlynscore',
+
     'django_graphiql',
     'graphene.contrib.django',
+    'webpack_loader',
 
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -64,3 +67,12 @@ TEMPLATES = [
 ]
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'build'),
+)
+WEBPACK_LOADER = {
+    'DEFAULT': {
+        'BUNDLE_DIR_NAME': 'bundles/',
+        'STATS_FILE': os.path.join(BASE_DIR, 'build', 'webpack-stats.json'),
+    }
+}
