@@ -1,5 +1,6 @@
 Django>=1.9
 dj_database_url
+django-custom-user
 django-graphiql
 django-webpack-loader
 graphene
