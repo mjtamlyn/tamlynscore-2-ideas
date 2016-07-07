@@ -1,11 +1,21 @@
 import React from 'react';
 import Relay from 'react-relay';
 
-require('../../sass/app.sass');
+import LoginForm from './login-form';
+
+// require('../../sass/app.sass');
 
 let App = function(props) {
     return (
-        <div>{ props.root.hello }</div>
+        <div className="app">
+            <header className="header">
+                <a className="header__link" href="/login/">Log in</a>
+            </header>
+            <div className="main">
+                { props.root.hello }
+                <LoginForm />
+            </div>
+        </div>
     );
 };
 

@@ -1,10 +1,12 @@
 jest.unmock('../app');
+jest.unmock('../login-form');
 
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 
 import App from '../app';
+import LoginForm from '../login-form';
 
 
 describe('app', () => {
@@ -16,6 +18,10 @@ describe('app', () => {
         );
         const result = renderer.getRenderOutput();
         expect(result.type).toBe('div');
-        expect(result.props.children).toEqual(root.hello);
+        const main = result.props.children[1];
+        const hello = main.props.children[0];
+        const form = main.props.children[1];
+        expect(hello).toEqual(root.hello);
+        expect(form.type).toBe(LoginForm);
     });
 });
